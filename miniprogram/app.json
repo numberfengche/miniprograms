@@ -1,0 +1,20 @@
+{
+    "pages": [
+        "pages/productShare/index",
+        "pages/logs/logs",
+        "pages/product/pruduct",
+        "pages/sample/talent",
+        "pages/sample/form",
+        "pages/user/profile/index",
+        "pages/coopList/coopList",
+        "pages/express/express",
+        "pages/index/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "Weixin",
+        "navigationBarTextStyle": "black"
+    },
+    "sitemapLocation": "sitemap.json"
+}

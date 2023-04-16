@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "申请合作",
+    "usingComponents": {
+        "mradio": "../../components/form/radio"
+    }
+}

@@ -1,0 +1,22 @@
+<!--pages/express/express.wxml-->
+<view>
+    <view class="card">
+        <view class="table">
+            <view class="row">
+                <view class="name">物流公司：</view>
+                <view class="value">{{name || "暂无信息"}}</view>
+            </view>
+            <view class="row">
+                <view class="name">物流单号</view>
+                <view class="value">{{num}}</view>
+                <view class="copy" data-value="{{num}}" bindtap="onCopyValue">复制</view>
+            </view>
+        </view>
+    </view>
+    <view class="card express">
+        <view class="title">物流详情</view>
+        <view class="steps">
+            <van-steps steps="{{steps}}" custom-class="steps-root" desc-class="steps-desc" active-icon="/assets/images/icon-redpoint@2x.png" direction="vertical" active-color="rgba(51,51,51,1)" />
+        </view>
+    </view>
+</view>

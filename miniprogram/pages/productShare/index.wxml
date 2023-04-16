@@ -1,0 +1,60 @@
+<!--pages/productShare/index.wxml-->
+<view class="wrap">
+
+    <view class="head">
+        <view class="info" wx:if="{{shareInfo.product_total > 0}}">
+            <view class="title">
+                <view class="emphasis company-name">{{shareInfo.company_name}}</view>
+                <view>的</view>
+                <view class="emphasis user-name">{{shareInfo.user_name}}</view>
+                <view>向你推荐了{{shareInfo.product_total}}个商品</view>
+            </view>
+            <view class="time">
+                <view class="icon">
+                    <image src="/assets/images/icon-time@2x.png"></image>
+                </view>
+                <view>{{shareInfo.share_time}}</view>
+            </view>
+        </view>
+        <view class="contact" bindtap="callUser" wx:if="{{shareInfo.product_total > 0}}">
+            <view>
+                <image src="/assets/images/icon-phone@2x.png"></image>
+            </view>
+            <view>联系ta</view>
+        </view>
+    </view>
+
+    <view class="place"></view>
+
+    <view class="product">
+        <view class="title">
+            <view class="block"></view>
+            <view class="ttext">商品信息</view>
+        </view>
+
+        <view class="plist">
+            <scroll-view class="content" scroll-y lower-threshold="10" refresher-enabled="{{false}}" style="height: calc(100vh - 340rpx);">
+
+                <view wx:if="{{shareInfo.products.length > 0 }}" class="scroll_content list">
+                    <block wx:for="{{shareInfo.products}}" wx:key="product_id">
+                        <product-card item="{{item}}" groupID="{{shareID}}"></product-card>
+                    </block>
+                    <view class="card_bottom_margin"></view>
+                </view>
+
+                <!-- <block wx:if="{{products.length === 0 }}">
+                    <van-empty image="/assets/images/empty.png" description="暂无数据" />
+                </block> -->
+
+            </scroll-view>
+        </view>
+
+    </view>
+
+    <view class="bottom">
+        <button class="view-btn" bindtap="tocoop">
+            查看我的合作
+        </button>
+    </view>
+
+</view>

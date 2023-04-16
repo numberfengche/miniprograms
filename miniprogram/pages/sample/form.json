@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "地址信息",
+    "usingComponents": {
+        "mradio": "../../components/form/radio",
+        "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+        "van-popup": "@vant/weapp/popup/index"
+    }
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "商品分享",
+  "usingComponents": {
+    "product-card": "../../components/card/product-card"
+  }
+}

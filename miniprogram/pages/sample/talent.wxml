@@ -1,0 +1,46 @@
+<view class="container">
+    <view class="tlabel">达人UID</view>
+    <input class="input-box" placeholder="请输入抖音UID" bindinput="inputChange" value="{{inputValue}}" placeholder-class="placeholder-style" />
+    <view class="tips">请填写要寄样的达人UID</view>
+    <!-- ，仅支持字母和符号 -->
+    <navigator url="{{}}" open-type="navigate" hover-class="other-navigator-hover" style="width:100%">
+        <button class="view-btn" bindtap="buttonClick">
+            下一步
+        </button>
+    </navigator>
+
+    <view class="title">
+        <view class="block"></view>
+        <view class="ttext">最近填写</view>
+    </view>
+
+    <scroll-view class="content" scroll-y lower-threshold="10" style="height: calc(100vh - 340rpx);">
+        <block wx:for="{{history}}" wx:key="dou_id">
+            <view class="card" bindtap="setChoose" data-id="{{item.uid}}">
+                <view class="left">
+                    <view class="avatar">
+                        <image src="{{item.avatar}}" />
+                    </view>
+                    <view>
+                        <view class="namerow">
+                            <view class="dicon">
+                                <image src="/assets/images/icon-dou@2x.png" />
+                            </view>
+                            <view class="name">{{item.nickname}}</view>
+                        </view>
+                        <view class="douidrow">
+                            抖音号：{{item.dou_id}}
+                        </view>
+                        <view class="douidrow">
+                            UID: {{item.uid}}
+                        </view>
+                    </view>
+                </view>
+                <view class="box">
+                    <mradio checked="{{historyID==item.uid}}" />
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+
+</view>

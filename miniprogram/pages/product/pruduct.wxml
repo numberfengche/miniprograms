@@ -1,0 +1,87 @@
+<!--pages/product/pruduct.wxml-->
+<view class="body">
+    <view>
+        <image class="cover" src="{{product_info.image_url}}" mode="widthFix" />
+    </view>
+    <!-- 商品属性 -->
+    <view class="card">
+        <view class="title">{{product_info.title}}</view>
+        <view class="middle">
+            <view class="price-prefix">￥</view>
+            <view class="price">{{product_info.price}}</view>
+            <view class="price-tag">{{product_info.price_tag}}</view>
+            <view class="ratio">
+                {{product_info.cos_ratio}}%
+                <text>佣金</text>
+            </view>
+        </view>
+        <view class="shop-name">
+            <image src="/assets/images/icon-dou@2x.png" />
+            <view>{{product_info.shop_name}}</view>
+        </view>
+    </view>
+
+    <!-- 推荐人 -->
+    <view class="card recommand">
+        <view class="left">
+            <view class="title">推荐人</view>
+            <view class="content">{{company_name}} 的 {{user_name}}</view>
+        </view>
+        <view class="right" bindtap="onShowContact">
+            <image src="/assets/images/icon-phone@2x.png" />
+            <view class="content">联系Ta</view>
+        </view>
+    </view>
+
+    <!-- 商品详情 -->
+    <view class="card desc" wx:if="{{product_info.description && product_info.description.length}}">
+        <view class="title">商品详情</view>
+        <view class="images">
+            <image wx:for="{{product_info.description}}" src="{{item}}" mode="widthFix"></image>
+        </view>
+    </view>
+
+    <!-- 底部导航 -->
+    <view class="bottom-wrapper">
+        <view class="bottom-inner">
+            <view class="icon-btn" bindtap="onCopyUrl">
+                <image class="icon" src="/assets/images/icon-copy@2x.png" />
+                <view class="content">复制链接</view>
+            </view>
+            <view class="icon-btn" style="margin-left: 32rpx;" bindtap="onShowCard">
+                <image class="icon" src="/assets/images/icon-cord@2x.png" />
+                <view class="content">查看手卡</view>
+            </view>
+            <button>申请合作</button>
+        </view>
+    </view>
+
+    <!-- 手卡弹窗 -->
+    <van-popup custom-style="background-color: transparent" show="{{show_card}}" bind:close="onCloseCard">
+        <view class="popup-card" w>
+            <image src="{{product_info.card_url}}"></image>
+            <button bindtap="onSaveCard">保存到手机</button>
+        </view>
+    </van-popup>
+
+    <!-- 联系Ta弹窗 -->
+    <van-popup show="{{show_contact}}" round position="bottom" bind:close="onCloseContact">
+        <view class="popup-contact">
+            <view class="title">
+                联系推荐人
+            </view>
+            <image class="close" bindtap="onCloseContact" src="/assets/images/icon-close@2x.png"></image>
+            <view class="content">
+                联系<text> {{company_name}} </text>的<text> {{user_name}} </text>
+            </view>
+            <view class="line mobile">
+                <view>电话：{{phone || "暂无"}}</view>
+                <button bindtap="onCallPhone">打电话</button>
+            </view>
+            <view class="line wechat">
+                <view>微信：{{wechat || "暂无"}}</view>
+                <button bindtap="onCopyWechat">复制</button>
+            </view>
+        </view>
+    </van-popup>
+</view>
