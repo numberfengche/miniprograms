@@ -1,7 +1,0 @@
-{
-    "navigationBarTitleText": "申请人信息",
-    "usingComponents": {
-        "van-icon": "@vant/weapp/icon/index",
-        "van-popup": "@vant/weapp/popup/index"
-    }
-}

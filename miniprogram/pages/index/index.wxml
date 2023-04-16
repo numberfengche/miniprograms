@@ -1,17 +1,5 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <block>
-      <image bindtap="onTapAvatar" class="userinfo-avatar" src="{{avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{nickName}}</text>
-      <text style="margin-top: 10px;">scene:{{scene}}</text>
-    </block>
-  </view>
-  <view style="margin-top: 20px;">
-      <button type="primary" open-type="chooseAvatar" bindchooseavatar="onChooseavatar">选择头像</button>
-      <input style="text-align: center; margin-top: 10px; border: 1px rgb(41, 36, 36) solid;" type="nickname" placeholder="请输入昵称"/>
-      <button style="margin-top: 10px;" type="primary" bindtap="onTapProduct">跳转到详情</button>
-      <button style="margin-top: 10px;" type="primary" bindtap="onTapCoop">跳转到合作</button>
-  </view>
+12312312312321312321
 </view>
  
