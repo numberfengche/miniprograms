@@ -13,15 +13,15 @@ App<IAppOption>({
         const { envVersion } = wx.getAccountInfoSync().miniProgram;
         switch (envVersion) {
             case "release":
-                this.globalData.host = "https://coupon.leshan.red"
+                this.globalData.host = "https://wuliang.1meigong.com/"
                 break
             case "develop":
                 // this.globalData.host = "http://127.0.0.1:20209"
-                this.globalData.host = "https://coupon.leshan.red"
+                this.globalData.host = "https://wuliang.1meigong.com/"
                 break
             case "trial":
             default:
-                this.globalData.host = "https://coupon.leshan.red"
+                this.globalData.host = "https://wuliang.1meigong.com/"
         }
         console.log("app::envVersion", envVersion, this.globalData.host)
 

@@ -1,3 +1,5 @@
+import { request } from "./net"
+
 export const formatTime = (date: Date) => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -31,3 +33,26 @@ const formatNumber = (n: number) => {
   const s = n.toString()
   return s[1] ? s : '0' + s
 }
+// import { request } from "@@/exports";
+
+class webapi {
+  static get<T>(url: string, params?: any): Promise<T> {
+    return this.execute<T>(url, {
+      method: "GET",
+      params: params
+    });
+  }
+
+  static post<T>(url: string, data?: any): Promise<T> {
+    return this.execute<T>(url, {
+      method: "POST",
+      data: data
+    });
+  }
+
+  static execute<T>(url: string, option: any): Promise<T> {
+    return request(url, option).then((r: any) => r.data);
+  }
+}
+
+export default webapi;
