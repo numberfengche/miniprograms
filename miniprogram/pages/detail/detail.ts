@@ -1,20 +1,38 @@
-// pages/collect/collect.ts
+// pages/detail/detail.ts
+import { formatRichText } from "../../utils/util";
+import { request } from "../../utils/net";
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        html:{},
+        navBarHeight: getApp().globalData.navBarHeight,//导航栏高度
+        top: wx.getMenuButtonBoundingClientRect().top,
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad() {
-
+    onLoad(data:any) {
+        console.log(data);
+        const { article_id } = data;
+        this.getSource(article_id)
     },
-
+    getSource(article_id:any){
+        request({
+           url: `api/mini/article/detail?article_id=${article_id}`,
+           method: "GET",
+           success: ({ data}: any) => {
+             console.log(data);
+             data.html=formatRichText(data.html)
+             this.setData({html:data})
+           },
+           fail: () => {
+           },
+         });
+     },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

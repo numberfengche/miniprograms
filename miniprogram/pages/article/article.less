@@ -1,0 +1,150 @@
+/* pages/article/article.wxss */
+/* pages/mine/mine.wxss */
+page {
+    background-color: #F5F6F8;
+}
+
+.con_big {
+    width: 100%;
+    height: 100vh;
+}
+
+.img_box {
+    width: 100%;
+    height: 558rpx;
+    position: relative;
+    box-sizing: border-box;
+
+    .img_mine {
+        width: 100%;
+        height: 100%;
+    }
+
+    .logo {
+        width: 360rpx;
+        position: absolute;
+        top: 188rpx;
+        left: 196rpx;
+        height: 72rpx;
+        font-size: 48rpx;
+        font-family: Alibaba PuHuiTi-Bold, Alibaba PuHuiTi;
+        font-weight: bold;
+        color: #272831;
+    }
+
+    .nav {
+        position: absolute;
+        top: 0;
+        box-sizing: border-box;
+        padding-left: 34rpx;
+        display: flex;
+        align-items: center;
+
+        .home_icon {
+            width: 48rpx;
+            height: 48rpx;
+        }
+
+        .nav_title {
+            width: 68rpx;
+            height: 48rpx;
+            font-size: 34rpx;
+            font-family: PingFang SC-Medium, PingFang SC;
+            font-weight: 500;
+            margin-left: 272rpx;
+            color: #000000;
+        }
+    }
+
+    .log_out {
+        position: absolute;
+        left: 28rpx;
+        bottom: 0;
+
+        .out_title {
+            width: 156rpx;
+            height: 72rpx;
+            font-size: 52rpx;
+            font-family: PingFang SC-Medium, PingFang SC;
+            font-weight: 500;
+            color: #1A1A1A;
+            line-height: 61rpx;
+        }
+    }
+
+    .select {
+        width: 694rpx;
+        height: 454rpx;
+        background: #fff;
+        border-radius: 12rpx 12rpx 12rpx 12rpx;
+        opacity: 1;
+        position: absolute;
+        top: 308rpx;
+        left: 28rpx;
+        padding: 32rpx;
+
+        .title {
+            font-size: 32rpx;
+            font-family: PingFang SC-Medium, PingFang SC;
+            font-weight: 500;
+            color: #1A1A1A;
+        }
+
+        .select_art {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            margin-top: 32rpx;
+            overflow-y: scroll;
+
+            .article_item {
+                width: 197rpx;
+                height: 314rpx;
+                flex-shrink: 0;
+                background: #F7F7F7;
+                border-radius: 8rpx 8rpx 8rpx 8rpx;
+                opacity: 1;
+                margin-right: 20rpx;
+
+                .img_article {
+                    width: 100%;
+                    height: 194rpx;
+                    border-radius: 8rpx 8rpx 0 0;
+                }
+
+                .text_con {
+                    width: 168rpx;
+                    margin: 22rpx auto;
+
+                    .theme {
+                        width: 100%;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        font-size: 28rpx;
+                        font-family: PingFang SC-Medium, PingFang SC;
+                        font-weight: 500;
+                        color: #1A1A1A;
+                    }
+
+                    .subtitle {
+                        width: 100%;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        font-size: 22rpx;
+                        margin-top: 8rpx;
+                        font-family: PingFang SC-Regular, PingFang SC;
+                        font-weight: 400;
+                        color: #888888;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.placeholder {
+    width: 100%;
+    height: 205rpx;
+}

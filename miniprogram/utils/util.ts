@@ -35,24 +35,44 @@ const formatNumber = (n: number) => {
 }
 // import { request } from "@@/exports";
 
-class webapi {
-  static get<T>(url: string, params?: any): Promise<T> {
-    return this.execute<T>(url, {
-      method: "GET",
-      params: params
+
+export const formatRichText=(html:any)=>{
+    console.log(html);
+    let newContent= html.replace(/<img[^>]*>/gi,function(match:any,capture:any){
+        match = match.replace(/style="[^"]+"/gi, '').replace(/style='[^']+'/gi, '');
+        match = match.replace(/width="[^"]+"/gi, '').replace(/width='[^']+'/gi, '');
+        match = match.replace(/height="[^"]+"/gi, '').replace(/height='[^']+'/gi, '');
+        return match;
     });
-  }
-
-  static post<T>(url: string, data?: any): Promise<T> {
-    return this.execute<T>(url, {
-      method: "POST",
-      data: data
+    newContent = newContent.replace(/style="[^"]+"/gi,function(match:any,capture:any){
+        match = match
+        .replace(/<p>/gi, '<p class="p_class">')
+        .replace(/width:[^;]+;/gi, 'max-width:100%;')
+        .replace(/width:[^;]+;/gi, 'max-width:100%;');
+        return match;
     });
+    newContent = newContent.replace(/<br[^>]*\/>/gi, "");
+    newContent = newContent.replace(/<a>/gi, '<a class="p_class "');
+    newContent = newContent.replace(/<li>/gi, '<li class="p_class "');
+    newContent = newContent.replace(/\<p/gi, '<p class="p_class "');
+    newContent = newContent.replace(/\<span/gi, '<span class="p_class "');
+    newContent = newContent.replace(/\<img/gi, '<img style="max-width:100%;height:auto;display:block;margin-top:0;margin-bottom:0;"');
+    return newContent;
   }
-
-  static execute<T>(url: string, option: any): Promise<T> {
-    return request(url, option).then((r: any) => r.data);
-  }
-}
-
-export default webapi;
+  export const filterKeys = (json: any | Array<any>) => {
+    let result: any = false;
+    if (Array.isArray(json)) {
+      result = json.filter((item) => item !== "" && item !== null && item !== undefined);
+    } else if (json instanceof Object) {
+      result = {};
+  
+      for (const key in json) {
+        if (json[key] !== "" && json[key] !== null && json[key] !== undefined) {
+          // if (Array.isArray(json[key]) && json[key].length > 0) {
+          result[key] = json[key];
+          // }
+        }
+      }
+    }
+    return result;
+  };

@@ -12,10 +12,12 @@ export const request = async ({ url, method, data, success, fail, showMessage = 
     // const { token: Authorization } = await login();
     // console.log(Authorization);
     // const role = getApp().globalData.role;
-    const { host, token } = getApp().globalData;
+    // const { token} = getApp().globalData;
+ const token= wx.getStorageSync('token')
+console.log(token);
 
     wx.request({
-        url: url.startsWith("http") ? url : `${host}${url}`,
+        url: url.startsWith("http") ? url : `https://wuliang.1meigong.com/${url}`,
         method: method === "POST" ? "POST" : "GET",
         data,
         header: { "content-type": "application/json", "Authorization": token },

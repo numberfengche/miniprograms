@@ -1,6 +1,6 @@
 {
     "usingComponents": {
-        "login": "/components/login/index"
+        "articleCard": "/components/articleCard/index"
     },
     "navigationStyle": "custom"
 }

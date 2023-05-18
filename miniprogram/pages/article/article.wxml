@@ -1,0 +1,26 @@
+<scroll-view scroll-y="true" class="con_big" fast-deceleration="{{true}}" bindscrolltolower="bindDownLoad" lower-threshold="130" scroll-top="0">
+    <view class="container">
+        <view class="img_box">
+            <image class="img_mine" src="/assets/images/article/bgc.png" />
+            <view class="nav" style="height:{{navBarHeight}}px; padding-top: {{top}}px;">
+                <image src="/assets/images/home.png" class="home_icon" />
+            </view>
+            <view class="logo">五粮文创集文章</view>
+            <view class="select">
+                <view class="title">精选好文</view>
+                <view class="select_art">
+                    <view class="article_item" wx:for="{{omnibus}}" wx:key="index" bind:tap="goDetail" data-id="{{item.article_id}}" >
+                        <image src="{{item.cover_url}}" class="img_article" mode="" />
+                        <view class="text_con">
+                            <view class="theme">{{item.title}}</view>
+                            <view class="subtitle">{{item.sub_title}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view class="placeholder"></view>
+        <articleCard wx:for="{{list}}" wx:key="index" source="{{item}}" />
+    </view>
+</scroll-view>

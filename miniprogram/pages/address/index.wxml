@@ -1,0 +1,34 @@
+<view class="container">
+  <nav></nav>
+  <view class="placeholder"></view>
+  <view class="address_card">
+    <view class="left">
+      <view class="name_row">
+        <view class="name">张三</view>
+        <view class="defult">默认</view>
+      </view>
+      <view class="phone">1898886712</view>
+      <view class="province">四川省成都市高新区</view>
+      <view class="detail">天府大道南段000号附15号xx楼xx室</view>
+    </view>
+
+    <image class="right" src="/assets/images/address/editor.png" mode="" />
+  </view>
+  <view class="address_card">
+    <view class="left">
+      <view class="name_row">
+        <view class="name">张三</view>
+        <view class="defult">默认</view>
+      </view>
+      <view class="phone">1898886712</view>
+      <view class="province">四川省成都市高新区</view>
+      <view class="detail">天府大道南段000号附15号xx楼xx室</view>
+    </view>
+
+    <image class="right" src="/assets/images/address/editor.png" mode="" />
+  </view>
+  
+<view class="bot">
+<view class="add_address" bind:tap="add">新增地址</view>
+</view>
+</view>

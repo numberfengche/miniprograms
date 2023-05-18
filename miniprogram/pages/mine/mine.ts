@@ -1,34 +1,101 @@
 // pages/mine/mine.ts
-Page({
+import { request } from "../../utils/net";
 
+Page({
     /**
      * 页面的初始数据
      */
     data: {
-
+        navBarHeight: getApp().globalData.navBarHeight,//导航栏高度
+        top: wx.getMenuButtonBoundingClientRect().top,
+        showLogin: getApp().globalData.showLogin,
+        avatar: getApp().globalData.avatar,
+        name: getApp().globalData.name,
+        phone: "",
+        calendar: {} as any
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad() {
-
+      this.setData({
+        phone:getApp().globalData.phone
+      })
+      this.getpoints()
+        getApp().watch('phone', this.watchBack);
     },
-
+    watchBack: function (name: any, value: any) {
+        console.log('name==' + name);
+        console.log(value);
+        // 可以这样
+        let data = {} as any;
+        data[name] = value;
+        this.setData(data);
+        // 也可以这样
+        if (name === 'phone') {
+            this.setData({
+                phone: getApp().globalData.phone,
+            });
+            this.getpoints()
+            this.onLoad()
+        }
+    },
+    login() {
+        // console.log(123123);
+        this.setData({
+            showLogin: true
+        })
+        getApp().globalData.showLogin = true;
+        console.log(getApp().globalData.showLogin);
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
+        //登录请求回来之后,读取res的header的cookie
+        //cookie是个唯一标识
 
     },
-
+    //跳转
+    goaddress(){
+        wx.navigateTo({ url: `/pages/address/index` })
+    },
+    //rili
+    getpoints() {
+        request({
+            url: "/api/mini/points/calendar",
+            // data: this.data.searchInformation,
+            success: ({ data }: any) => {
+                console.log(data);
+                this.setData({ calendar: data })
+            },
+            fail: () => {
+                // this.setData({ loading: false });
+            },
+        });
+    },
     /**
      * 生命周期函数--监听页面显示
      */
     onShow() {
 
     },
-
+    signIn() {
+        request({
+            url: "/api/mini/points/check-in",
+            method: "POST",
+            // data: this.data.searchInformation,
+            success: ({ data }: any) => {
+                console.log(data);
+                this.getpoints()
+                // this.setData({calendar:data})
+            },
+            fail: () => {
+                // this.setData({ loading: false });
+            },
+        });
+    },
     /**
      * 生命周期函数--监听页面隐藏
      */
@@ -64,3 +131,9 @@ Page({
 
     }
 })
+
+
+
+
+
+
