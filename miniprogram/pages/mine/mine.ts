@@ -28,11 +28,9 @@ Page({
     watchBack: function (name: any, value: any) {
         console.log('name==' + name);
         console.log(value);
-        // 可以这样
-        let data = {} as any;
-        data[name] = value;
-        this.setData(data);
-        // 也可以这样
+        // let data = {} as any;
+        // data[name] = value;
+        // this.setData(data);
         if (name === 'phone') {
             this.setData({
                 phone: getApp().globalData.phone,
@@ -42,7 +40,6 @@ Page({
         }
     },
     login() {
-        // console.log(123123);
         this.setData({
             showLogin: true
         })
@@ -53,8 +50,6 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
-        //登录请求回来之后,读取res的header的cookie
-        //cookie是个唯一标识
 
     },
     //跳转
@@ -65,13 +60,11 @@ Page({
     getpoints() {
         request({
             url: "/api/mini/points/calendar",
-            // data: this.data.searchInformation,
             success: ({ data }: any) => {
                 console.log(data);
                 this.setData({ calendar: data })
             },
             fail: () => {
-                // this.setData({ loading: false });
             },
         });
     },

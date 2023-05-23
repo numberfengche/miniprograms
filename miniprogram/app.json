@@ -7,7 +7,9 @@
         "pages/mine/mine",
         "pages/detail/detail",
         "pages/address/index",
-        "pages/address/new/index"
+        "pages/address/new/index",
+        "pages/square/goods-detail/goods-detail",
+        "pages/square/trolley/trolley"
     ],
     "tabBar": {
         "backgroundColor": "#fff",

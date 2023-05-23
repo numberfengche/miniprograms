@@ -1,8 +1,8 @@
 <view class="mark">
     <view class="nav" style="height:{{navBarHeight}}px; padding-top: {{top}}px;">
-                <image src="/assets/images/home.png" class="home_icon" />
+                <image src="/assets/images/home.png" class="home_icon" bind:tap="back" />
                 <view class="nav_title">
-                地址列表
+                {{name}}
             </view>
             <view class="null"></view>
             </view>

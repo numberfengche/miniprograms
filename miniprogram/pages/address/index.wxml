@@ -1,34 +1,26 @@
 <view class="container">
-  <nav></nav>
+  <nav name="文创市集"></nav>
+<block>
   <view class="placeholder"></view>
-  <view class="address_card">
+  <view class="address_card" wx:for="{{list}}" wx:key="index">
     <view class="left">
       <view class="name_row">
-        <view class="name">张三</view>
-        <view class="defult">默认</view>
+        <view class="name">{{item.name}}</view>
+        <view class="defult" wx:if="{{item.is_default===1}}">默认</view>
       </view>
-      <view class="phone">1898886712</view>
-      <view class="province">四川省成都市高新区</view>
-      <view class="detail">天府大道南段000号附15号xx楼xx室</view>
+      <view class="phone">{{item.mobile}}</view>
+      <view class="province">{{item.province}}{{item.city}}{{item.area}}</view>
+      <view class="detail">{{item.address}}</view>
     </view>
 
-    <image class="right" src="/assets/images/address/editor.png" mode="" />
+    <image class="right" bind:tap="modifyAddress" data-item="{{item}}" src="/assets/images/address/editor.png" mode="" />
   </view>
-  <view class="address_card">
-    <view class="left">
-      <view class="name_row">
-        <view class="name">张三</view>
-        <view class="defult">默认</view>
-      </view>
-      <view class="phone">1898886712</view>
-      <view class="province">四川省成都市高新区</view>
-      <view class="detail">天府大道南段000号附15号xx楼xx室</view>
-    </view>
-
-    <image class="right" src="/assets/images/address/editor.png" mode="" />
-  </view>
-  
+  <view class="place"></view>
 <view class="bot">
 <view class="add_address" bind:tap="add">新增地址</view>
+</view>
+</block>
+<view class="loading" wx:if="{{show}}">
+  <van-loading   size="60px" class="loading_list" type="spinner" />
 </view>
 </view>

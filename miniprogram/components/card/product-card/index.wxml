@@ -1,37 +1,17 @@
-<view class="pwrap">
-  <view class="pcard">
-    <view class="pcard-img">
-      <image class="img" src="{{item.image}}"></image>
+<view class="card" bind:tap="godetail">
+ <image src="{{item.cover_urls[0]}}" class="card_img" mode=""/>
+    <view class="product_info">
+        <view class="product_name">{{item.title}}</view>
+        <view class="price_row">
+            <view  wx:if="{{item.price>0}}" class="price">
+            {{item.price}} <text>元</text>
+        </view>
+        <block wx:if="{{item.points>0}}">
+      <view class="add" wx:if="{{item.price>0}}" >+</view>
+        <view class="price">
+            {{item.points}} <text>积分</text>
+        </view>
+        </block>
+        </view>
     </view>
-    <view class="pcard-content">
-      <view class="pcard-title">{{item.title}}</view>
-      <view class="pcard-prices">
-        <view class="price-group">
-          <view class="price">
-            <view class="symbol">￥</view>
-            {{item.price}}
-          </view>
-          <view class="label">带货价</view>
-        </view>
-        <view class="commission">
-          <view class="number">{{item.cos_ratio}}%</view>
-          <view class="ctext">佣金</view>
-        </view>
-      </view>
-      <view class="shop">
-        <view class="dicon">
-          <image src="/assets/images/icon-dou@2x.png" />
-        </view>
-        {{item.shop_name}}
-      </view>
-      <view class="btns">
-        <button class="btn btn1" plain="true" bindtap="copyText" data-text="{{item.product_id}}">复制链接</button>
-        <button class="btn btn2" bindtap="tosample">申请合作</button>
-      </view>
-    </view>
-
-  </view>
-
-  <view class="line"></view>
 </view>
-

@@ -1,2 +1,12 @@
-<!--pages/square/square.wxml-->
-<text>pages/square/square.wxml</text>
+<nav name="文创市集"></nav>
+<view class="placeholder"></view>
+<view class='box'>
+    <scroll-view scroll-y scroll-with-animation style="width:180rpx">
+        <view class='nav1'>
+            <view wx:for="{{navList}}" wx:key='category_id' class="title {{item.category_id == active ?'select':''}}" data-index='{{item.category_id}}' bindtap='activeNav'>{{item.name}}</view>
+        </view>
+    </scroll-view>
+    <view class="card_con">
+        <productCard wx:for="{{goods}}" wx:key="index" item="{{item}}"></productCard>
+    </view>
+</view>

@@ -1,0 +1,25 @@
+<view class="receptacle">
+    <nav name="购物车"></nav>
+    <view class="placeholder"></view>
+    <van-checkbox-group value="{{ result }}" bind:change="onChange" >
+
+        <van-swipe-cell wx:for="{{list}}" wx:key="index" right-width="{{ 65 }}">
+            <view class="card">
+                <van-checkbox name="{{item.goods_id}}" checked-color="#1A1A1A"> </van-checkbox>
+                <image src="{{item.cover_url}}" class="img" mode=""/>
+                <view class="info">
+                    <view class="title">{{item.title}}</view>
+                    <view class="price_row">
+                        <view class="price">￥1900</view>
+                        <van-stepper value="{{ item.num }}" data-id="{{item.goods_id}}" data-cartid="{{item.cart_id}}" bind:change="onStepperChange" input-width="40px" button-size="32px" />
+                    </view>
+                </view>
+
+            </view>
+            <view class="delete" slot="right">删除</view>
+        </van-swipe-cell>
+    </van-checkbox-group>
+
+
+
+</view>

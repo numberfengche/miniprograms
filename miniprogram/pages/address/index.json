@@ -1,6 +1,7 @@
 {
     "usingComponents": {
-        "nav": "/components/nav/index"  
+        "nav": "/components/nav/index",
+        "van-loading": "@vant/weapp/loading/index" 
     },
     "navigationStyle": "custom"
 }

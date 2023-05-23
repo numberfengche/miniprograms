@@ -11,21 +11,21 @@
       <view class="block">
         <label class="left">
           <view class="label">收货人</view>
-          <input class="input" name="addressee" value="{{addressee}}" placeholder="请输入收货人姓名" />
+          <input class="input" name="name" value="{{name}}" placeholder="请输入收货人姓名" />
         </label>
       </view>
 
       <view class="block">
         <label class="left">
           <view class="label">手机号码</view>
-          <input class="input" name="phone" value="{{phone}}" placeholder="请输入收货人电话" />
+          <input class="input" name="mobile" value="{{mobile}}" placeholder="请输入收货人电话" />
         </label>
       </view>
 
       <view class="block">
         <label class="left">
           <view class="label">所在地区</view>
-          <picker class="input" mode="region" bindchange="bindRegionChange" value="{{location}}" custom-item="{{customItem}}">
+          <picker class="input" mode="region" bindchange="bindRegionChange" value="{{location}}" >
             <view class="picker">{{location[0]}}{{location[1]}}{{location[2]}}</view>
           </picker>
         </label>
@@ -37,7 +37,7 @@
       <view class="block">
         <label class="left">
           <view class="label">详细地址</view>
-          <textarea class="textarea" name="address" value="{{address}}" placeholder="街道、楼牌号" />
+          <input class="input" name="address" value="{{address}}" placeholder="详细的收货地址" />
         </label>
       </view>
     </view>
@@ -46,13 +46,28 @@
       <view class="block">
         <label class="left">
           <view class="label">设为默认</view>
-          <switch class="switch" name="selection" color="#ef4034" value="{{selection}}" checked="{{selection}}" />
+          <switch class="switch" name="selection" color="#1A1A1A" value="{{selection}}" checked="{{selection}}" />
         </label>
       </view>
     </view>
   </view>
 
   <view class="footer">
-    <button class="f_button" disabled="{{loading}}" type="primary" color="#EF4034" block formType="submit">提交</button>
+    <button wx:if="{{!address_id}}"  class="f_button" disabled="{{loading}}" type="primary" color="#EF4034" block formType="submit">保存地址</button>
+     <button wx:if="{{address_id}}" class="delete_button"  type="primary" color="#EF4034" block bind:tap="remove">删除地址</button>
+      <button wx:if="{{address_id}}" class="save_button" disabled="{{loading}}" type="primary" color="#EF4034" block formType="submit">保存地址</button>
   </view>
 </form>
+<van-dialog
+  title="确认要删除地址？"
+  use-slot
+  show="{{ show }}"
+  showConfirmButton="{{false}}"
+  showCancelButton="{{false}}"
+  custom-class="my-custom-class"
+>
+<view class="options_row">
+  <button  class="cancel" bind:tap="cancel" block>取消</button>
+  <button  class="confirm"  bind:tap="confirm" block>确认</button>
+</view>
+</van-dialog>

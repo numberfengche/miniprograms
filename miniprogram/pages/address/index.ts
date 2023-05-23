@@ -1,11 +1,12 @@
-// pages/address/index.ts
+import { request } from "../../utils/net";
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        list: [],
+        show:true
     },
 
     /**
@@ -14,8 +15,12 @@ Page({
     onLoad() {
 
     },
-    add(){
-      wx.navigateTo({ url: "/pages/address/new/index" })
+    add() {
+        if (this.data.list.length === 20) {
+            wx.showToast({ title: "地址最多添加20条", icon: "none" });
+        } else {
+            wx.navigateTo({ url: "/pages/address/new/index" })
+        }
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -28,9 +33,31 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+      this.setData({ show:true});
+        request({
+            url: "/api/mini/address/list",
+            success: ({ data }: any) => {
+                const { list } = data
+                console.log(data);
+                this.setData({ list: list,show:false});
+            },
+        });
     },
-
+    //修改地址
+    modifyAddress(e: any) {
+        const item = e.currentTarget.dataset.item
+        wx.navigateTo({
+            url: `/pages/address/new/index`,
+            events: {
+                acceptDataFromOpenedPage: function (item: any) {
+                    console.log(item)
+                },
+            },
+            success: function (res) {
+                res.eventChannel.emit('acceptDataFromOpenerPage', { data: item })
+            }
+        })
+    },
     /**
      * 生命周期函数--监听页面隐藏
      */
