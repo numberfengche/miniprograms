@@ -15,19 +15,19 @@
         <view class="transmit_left">
             <view class="transmit" bind:tap="ontransmit" data-id="{{source.article_id}}">
                 <image class="img_transmit" src="/assets/images/article/transmit.png" mode="" />
-                <text>{{source.share_count}}</text>
+                <text>{{num}}</text>
             </view>
-            <block wx:if="{{!source.is_digg}}">
-              <view class="transmit" bind:tap="onlike" data-id="{{source.article_id}}">
-                <image class="img_transmit" src="/assets/images/article/like.png" mode="" />
-                <text>{{source.digg_count}}</text>
-            </view>
+            <block wx:if="{{!show}}">
+                <view class="transmit" bind:tap="onlike" data-id="{{source.article_id}}">
+                    <image class="img_transmit" src="/assets/images/article/like.png" mode="" />
+                    <text>{{source.digg_count}}</text>
+                </view>
             </block>
-            <block wx:else="{{source.is_digg}}">
-                <view class="transmit" >
-                <image class="img_transmit" src="/assets/images/article/like_select.png" mode="" />
-                <text>{{source.digg_count}}</text>
-            </view>
+            <block wx:else="{{show}}">
+                <view class="transmit">
+                    <image class="img_transmit" src="/assets/images/article/like_select.png" mode="" />
+                    <text>{{source.digg_count+1}}</text>
+                </view>
             </block>
         </view>
     </view>

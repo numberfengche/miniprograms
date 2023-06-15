@@ -1,11 +1,5 @@
 import { request } from "../../../utils/net";
-
-// pages/square/goods-detail/goods-detail.ts
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
         source: {} as any,
         add_loading: false,
@@ -17,7 +11,6 @@ Page({
      */
     onLoad() {
         var _this = this
-        _this.getGoodsNum()
         const eventChannel = this.getOpenerEventChannel()
         eventChannel.on('acceptDataFromOpenerPage', function (data) {
             console.log(data);
@@ -60,9 +53,27 @@ Page({
     gotrolley() {
         wx.navigateTo({ url: "/pages/square/trolley/trolley" })
     },
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
+ buy(){
+     const list = [{goods_id:this.data.source.goods_id,num:1}]
+    if (list.length > 0) {
+        wx.navigateTo({
+            url: "/pages/payment/payment",
+            events: {
+                acceptDataFromOpenedPage: function (item: any) {
+                    console.log(item)
+                },
+            },
+            success: function (res) {
+                res.eventChannel.emit('acceptDataFromOpenerPage', { data: list })
+            }
+        })
+    } else {
+        wx.showToast({
+            title: "请先选择商品~",
+            icon: "none"
+        })
+    }
+ },
     onReady() {
 
     },
@@ -71,7 +82,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        this.getGoodsNum()
     },
 
     /**

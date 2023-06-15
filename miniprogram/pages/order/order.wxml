@@ -1,0 +1,5 @@
+<view class="receptacle">
+  <nav name="我的订单"></nav>
+  <view class="placeholder"></view>
+  <List classify="{{classify}}"/>
+</view>

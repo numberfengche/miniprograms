@@ -1,0 +1,43 @@
+<view class="receptacle">
+  <nav name="确认订单"></nav>
+  <view class="placeholder"></view>
+  <view class="no_address" wx:if="{{noaddress}}">
+    <view class="label">配送信息</view>
+    <view class="row">
+      <text>您还未添加地址</text>
+      <view class="right" bind:tap="goaddress">
+        <van-icon name="plus" class="icon" /> <text>去添加地址</text>
+      </view>
+    </view>
+  </view>
+  <view class="address" wx:if="{{!noaddress}}">
+    <view class="address_label">
+      <view class="label">配送信息</view>
+      <image class="label_img" bind:tap="goaddress" src="/assets/images/address/editor.png" mode="" />
+    </view>
+    <view class="user">
+      <view class="name">{{addressInfo.name}}</view>
+      <view class="phone">{{addressInfo.mobile}}</view>
+    </view>
+    <view class="address_detail">{{addressInfo.province}} {{addressInfo.city}} {{addressInfo.area}}
+      {{addressInfo.address}}
+    </view>
+  </view>
+  <block wx:for="{{list}}" wx:key="index">
+    <paymentCard source="{{item}}"></paymentCard>
+  </block>
+  <paymentInfoCard info="{{priceInfo}}"></paymentInfoCard>
+  <view class="reamrk">
+    <view class="reamrk_title">买家留言</view>
+    <textarea  class="con" bindinput="getvalue" placeholder="留言建议提前协商（250字以内" placeholder-style="color:#BBBBBB;" value="{{remark}}" />
+  </view>
+  <view class="row_place"></view>
+  <view class="footer">
+    <button class="f_button" disabled="{{false}}" type="primary" color="#EF4034" block catch:tap="pay"  >立即支付</button>
+  </view>
+</view>
+<van-overlay show="{{ show }}">
+  <view class="wrapper">
+    <van-loading type="spinner" />
+  </view>
+</van-overlay>

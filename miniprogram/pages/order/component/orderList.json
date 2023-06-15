@@ -1,0 +1,12 @@
+{
+    "component": true,
+    "usingComponents": {
+        "van-tab": "@vant/weapp/tab/index",
+        "van-tabs": "@vant/weapp/tabs/index",
+        "obligation":"/components/obligation/obligation",
+        "shipped":"/components/shipped/shipped",
+        "received":"/components/received/received",
+        "deal":"/components/deal/deal",
+        "refund":"/components/refund/refund"
+    }
+}

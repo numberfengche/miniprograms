@@ -55,13 +55,11 @@ interface globalData {
     onLaunch() {
       let that=this;
       that.setNavBarInfo();
-      console.log(that.globalData.token);
       if(that.globalData.token){
         request({
             url: "/api/mini/user/session",
             // data: this.data.searchInformation,
             success: ({ data }: any) => {
-              console.log(data);
               const {nickName,mobile,avatar_url}=data
               that.globalData.name=nickName;
               that.globalData.phone=mobile;

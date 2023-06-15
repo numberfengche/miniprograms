@@ -1,5 +1,5 @@
 <view class="container">
-  <nav name="文创市集"></nav>
+  <nav name="地址列表"></nav>
 <block>
   <view class="placeholder"></view>
   <view class="address_card" wx:for="{{list}}" wx:key="index">

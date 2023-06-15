@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "nav": "/components/nav/index",
+        "van-icon": "@vant/weapp/icon/index",
+        "paymentCard": "/components/paymentCard/index",
+        "paymentInfoCard": "/components/paymentInfoCard/index",
+        "van-overlay": "@vant/weapp/overlay/index",
+        "van-loading": "@vant/weapp/loading/index"
+    },
+    "navigationStyle": "custom"
+}

@@ -1,0 +1,5 @@
+<view class="receptacle">
+  <nav name="积分明细"></nav>
+  <view class="placeholder"></view>
+  <List/>
+</view>

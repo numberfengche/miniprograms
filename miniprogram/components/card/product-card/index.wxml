@@ -4,7 +4,7 @@
         <view class="product_name">{{item.title}}</view>
         <view class="price_row">
             <view  wx:if="{{item.price>0}}" class="price">
-            {{item.price}} <text>元</text>
+            {{item.price_str}} <text>元</text>
         </view>
         <block wx:if="{{item.points>0}}">
       <view class="add" wx:if="{{item.price>0}}" >+</view>

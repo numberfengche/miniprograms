@@ -10,6 +10,8 @@ Page({
         html:{},
         navBarHeight: getApp().globalData.navBarHeight,//导航栏高度
         top: wx.getMenuButtonBoundingClientRect().top,
+        show:false,
+        id:0
     },
 
     /**
@@ -17,8 +19,18 @@ Page({
      */
     onLoad(data:any) {
         console.log(data);
-        const { article_id } = data;
+        const { article_id,show } = data;
+        console.log(show);
+        this.setData({
+            show:show,
+            id:article_id
+        })
         this.getSource(article_id)
+    },
+    goback(){
+        wx.switchTab({
+            url: "/pages/index/index",
+        })
     },
     getSource(article_id:any){
         request({
@@ -50,8 +62,23 @@ Page({
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide() {
+    dianzan() {
+        request({
+            url: "/api/mini/article/interact",
+            method: 'POST',
+            data: { type: 1, article_id:Number(this.data.id)  },
+            success: ({ data }: any) => {
 
+                console.log(data);
+                this.setData({ show: true });
+                wx.showToast({
+                    title: data.tips,
+                    icon: "none"
+                })
+            },
+            fail: () => {
+            },
+        });
     },
 
     /**
@@ -79,6 +106,8 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage() {
-
+        return {
+            path: `/pages/detail/detail?article_id=${this.data.id}`,
+          };
     }
 })

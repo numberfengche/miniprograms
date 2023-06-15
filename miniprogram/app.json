@@ -9,7 +9,11 @@
         "pages/address/index",
         "pages/address/new/index",
         "pages/square/goods-detail/goods-detail",
-        "pages/square/trolley/trolley"
+        "pages/square/trolley/trolley",
+        "pages/payment/payment",
+        "pages/orderDetail/orderDetail",
+        "pages/order/order",
+        "pages/integral/integral"
     ],
     "tabBar": {
         "backgroundColor": "#fff",
@@ -51,7 +55,7 @@
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "萌象",
+        "navigationBarTitleText": "五粮文创",
         "navigationBarTextStyle": "black"
     },
     "usingComponents": {

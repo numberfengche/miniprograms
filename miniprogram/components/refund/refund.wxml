@@ -1,0 +1,40 @@
+<view class="card">
+    <view class="order_id">
+        <view class="id">订单号：000000000461465</view>
+        <view class="state">{{item.state=== 0?'待付款':item.state=== 1?'待发货':item.state=== 2?"待收货":"退款"}}</view>
+    </view>
+    <view wx:for="{{item.goods_list}}" wx:key="index" wx:for-item="goods" class="card_row">
+        <!-- <view class="img"> </view> -->
+        <image src="{{goods.cover_url}}" class="img" mode="" />
+        <view class="info">
+            <view class="title">{{goods.title}}</view>
+            <view class="price_row">
+                <view class="price">
+                    <!-- <text>￥1800</text>
+                    <text class="add">+</text>
+                    <text>1200积分</text> -->
+
+                    <text wx:if="{{goods.price>0}}">￥{{goods.price_str}}</text>
+                    <text wx:if="{{goods.price>0 && goods.points>0}}" class="add_icon">+</text>
+                    <text wx:if="{{goods.points>0}}">{{goods.points}}积分</text>
+                </view>
+                <view class="num">x{{goods.num}}</view>
+            </view>
+        </view>
+    </view>
+    <!-- <view class="price_total">
+        <text>￥1800</text>
+        <text class="add">+</text>
+        <text>1200积分</text>
+    </view> -->
+    <!-- <view class="distribution">
+     <image class="icon_dis" src="/assets/images/peisong.png" alt=""/>
+     <text class="dis_state">配送中</text>
+     <text class="dis_info">成都站点：已出发发往下一站</text>
+    </view> -->
+    <view class="options">
+        <view class="cancel">取消售后</view>
+        <view class="cancel">售后进度</view>
+        <!-- <view class="pay">确认收货</view> -->
+    </view>
+</view>

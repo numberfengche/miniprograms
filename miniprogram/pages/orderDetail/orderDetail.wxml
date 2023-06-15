@@ -1,0 +1,35 @@
+<view class="receptacle">
+    <nav name="支付详情"></nav>
+    <view class="placeholder"></view>
+    <view class="con">
+        <image class="confirm" src="/assets/images/order/confirm.png" mode="" />
+        <view class="price_total">
+            <text wx:if="{{source.price_total>0}}">￥{{source.price_total_str}}</text>
+            <text  wx:if="{{source.price_total>0 && source.points_total>0}}" class="add_icon">+</text>
+            <text wx:if="{{source.points_total>0}}">{{source.points_total}}积分</text>
+        </view>
+    </view>
+<view class="info">
+    <view class="price">
+        <view class="price_title">付款方式</view>
+        <view class="total">混和支付</view>
+    </view>
+    <view class="price">
+        <view class="price_title">配送方式</view>
+        <view class="total">货到付款</view>
+    </view>
+    <view class="price">
+        <view class="price_title">商品说明</view>
+        <view class="total">无</view>
+    </view>
+    <view class="price">
+        <view class="price_title">创建时间</view>
+        <view class="total">{{source.create_time}}</view>
+    </view>
+</view>
+
+<view class="options">
+    <button class="add_button" bind:tap="goOrder" disabled="{{add_loading}}" type="primary" color="#EF4034" block >查看订单</button>
+    <button  bind:tap="back" class="buy_button"  type="primary" color="#EF4034" block >回到主页</button>
+</view>
+</view>

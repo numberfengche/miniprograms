@@ -1,25 +1,36 @@
 <view class="receptacle">
     <nav name="购物车"></nav>
     <view class="placeholder"></view>
-    <van-checkbox-group value="{{ result }}" bind:change="onChange" >
-
+    <van-checkbox-group value="{{ result }}" bind:change="onChange">
         <van-swipe-cell wx:for="{{list}}" wx:key="index" right-width="{{ 65 }}">
             <view class="card">
                 <van-checkbox name="{{item.goods_id}}" checked-color="#1A1A1A"> </van-checkbox>
-                <image src="{{item.cover_url}}" class="img" mode=""/>
+                <image src="{{item.cover_url}}" class="img" mode="" />
                 <view class="info">
                     <view class="title">{{item.title}}</view>
                     <view class="price_row">
-                        <view class="price">￥1900</view>
-                        <van-stepper value="{{ item.num }}" data-id="{{item.goods_id}}" data-cartid="{{item.cart_id}}" bind:change="onStepperChange" input-width="40px" button-size="32px" />
+                        <view class="price">
+                            <text wx:if="{{item.price>0}}">￥{{item.price_str}}</text>
+                            <text wx:if="{{item.price>0 &&item.points>0}}">+</text>
+                            <text wx:if="{{item.points>0}}" class="price">{{item.points}}积分</text>
+                        </view>
+                        <van-stepper max="{{item.stock_count}}" value="{{ item.num }}" data-id="{{index}}" data-gid="{{item.goods_id}}" data-cartid="{{item.cart_id}}" bind:change="onStepperChange" input-width="40px" button-size="32px" />
                     </view>
                 </view>
 
             </view>
-            <view class="delete" slot="right">删除</view>
+            <view class="delete" bind:tap="deleteGoods" data-id="{{item.cart_id}}" data-goodsid="{{item.goods_id}}" slot="right">删除</view>
         </van-swipe-cell>
     </van-checkbox-group>
 
-
-
+    <view class="bottom_place"></view>
+    <view class="options_row">
+        <view class="row">
+            <van-checkbox checked-color="#1A1A1A" value="{{ checked }}" bind:change="onChangeCheck">全选</van-checkbox>
+            <view class="total">
+                合计:￥{{price.price_total_str||0}} <text>+</text>{{price.points_total||0}}积分
+            </view>
+            <button class="buy_button" disabled="{{loading}}" type="primary" color="#EF4034" block bind:tap="buy">立即支付</button>
+        </view>
+    </view>
 </view>

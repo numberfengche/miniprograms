@@ -12,7 +12,7 @@
     <view class="line"></view>
     <view class="price_row">
         <view class="price" wx:if="{{source.price>0}}">
-            {{source.price}}<text>元</text>
+            {{source.price_str}}<text>元</text>
         </view>
         <block wx:if="{{source.points>0}}">
             <view class="add" wx:if="{{source.price>0}}">+</view>
@@ -26,7 +26,7 @@
         <view class="intor">
             {{source.intro}}
         </view>
-        <image wx:for="{{source.desc_urls}}" wx:key="index" src="{{item}}" class="images" mode="" />
+        <image wx:for="{{source.desc_urls}}" wx:key="index" src="{{item}}" class="images" mode="widthFix" />
     </view>
     <view class="bottom_place"></view>
     <view class="options_row">
@@ -37,7 +37,7 @@
     <image bind:tap="gotrolley" class="car_icon" src="/assets/images/car.png" mode=""/>
     </view>
     <button class="add_button" disabled="{{add_loading}}" type="primary" color="#EF4034" block bind:tap="addtocart">加入购物车</button>
-    <button  class="buy_button" disabled="{{loading}}" type="primary" color="#EF4034" block formType="submit">立即购买</button>
+    <button  class="buy_button" disabled="{{loading}}" type="primary" color="#EF4034" block formType="submit" bind:tap="buy">立即购买</button>
    </view>
     </view>
 </view>

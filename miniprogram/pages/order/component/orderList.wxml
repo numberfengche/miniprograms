@@ -1,0 +1,28 @@
+<scroll-view class="scroll" scroll-y bindscrolltolower="loadMore">
+   <view>
+    <view class="category">
+        <van-tabs id="tabs" bind:change="changeTab" ellipsis="{{false}}" 
+        active="{{classify}}"
+        title-active-color="#9B7B4E" title-inactive-color="#666666" color="#9B7B4E" line-width="{{28}}" line-height="{{2}}">
+            <!-- active="{{ searchInformation.cid_type }}" -->
+            <van-tab style="padding-left: 0 !important" title="全部" name="-1" />
+            <van-tab style="padding-left: 0 !important" title="待付款" name="0" />
+            <van-tab style="padding-left: 0 !important" title="待发货" name="1" />
+            <van-tab style="padding-left: 0 !important" title="待收货" name="2" />
+            <van-tab style="padding-left: 0 !important" title="退款" name="99" />
+        </van-tabs>
+    </view>
+    <block  wx:for="{{dataList}}"  wx:key="index">
+        <obligation item="{{item}}" wx:if="{{item.state===0}}" />
+        <shipped item="{{item}}" wx:if="{{item.state===1}}" />
+        <received item="{{item}}" wx:if="{{item.state===2}}" />
+        <deal item="{{item}}" wx:if="{{item.state===100}}" />
+        <refund item="{{item}}" wx:if="{{item.state===99}}"/>
+    </block>
+    <!-- <obligation wx:for="{{dataList}}" item="{{item}}" wx:key="index" /> -->
+    <!-- <shipped  wx:for="{{dataList}}" item="{{item}}" wx:key="index" /> -->
+    <!-- <received wx:for="{{dataList}}" item="{{item}}" wx:key="index" /> -->
+    <!-- <deal wx:for="{{dataList}}" item="{{item}}" wx:key="index" /> -->
+    <!-- <refund wx:for="{{dataList}}" item="{{item}}" wx:key="index"/> -->
+   </view>
+</scroll-view>

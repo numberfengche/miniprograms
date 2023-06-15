@@ -14,8 +14,6 @@ export const request = async ({ url, method, data, success, fail, showMessage = 
     // const role = getApp().globalData.role;
     // const { token} = getApp().globalData;
  const token= wx.getStorageSync('token')
-console.log(token);
-
     wx.request({
         url: url.startsWith("http") ? url : `https://wuliang.1meigong.com/${url}`,
         method: method === "POST" ? "POST" : "GET",
@@ -83,7 +81,7 @@ export const requestPromise = ({ url, method, data }: PParams) => {
             method,
             data,
             success: (res: { code: number; data: any; msg: string }) => {
-                resolve(res);
+                resolve(res.data);
             },
             fail: (reason: string) => {
                 reject(reason);

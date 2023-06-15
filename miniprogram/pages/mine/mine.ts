@@ -22,15 +22,9 @@ Page({
       this.setData({
         phone:getApp().globalData.phone
       })
-      this.getpoints()
         getApp().watch('phone', this.watchBack);
     },
     watchBack: function (name: any, value: any) {
-        console.log('name==' + name);
-        console.log(value);
-        // let data = {} as any;
-        // data[name] = value;
-        // this.setData(data);
         if (name === 'phone') {
             this.setData({
                 phone: getApp().globalData.phone,
@@ -49,12 +43,19 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady() {
-
+    goOrder(e:any) {
+        console.log(e.currentTarget.dataset.id);
+        
+  wx.navigateTo({
+      url:`/pages/order/order?id=${e.currentTarget.dataset.id}`
+  })
     },
     //跳转
     goaddress(){
         wx.navigateTo({ url: `/pages/address/index` })
+    },
+    gointegral(){
+        wx.navigateTo({ url: `/pages/integral/integral` })
     },
     //rili
     getpoints() {
@@ -72,7 +73,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        this.getpoints()
     },
     signIn() {
         request({
@@ -80,9 +81,7 @@ Page({
             method: "POST",
             // data: this.data.searchInformation,
             success: ({ data }: any) => {
-                console.log(data);
                 this.getpoints()
-                // this.setData({calendar:data})
             },
             fail: () => {
                 // this.setData({ loading: false });

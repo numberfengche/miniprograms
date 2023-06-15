@@ -119,8 +119,8 @@ Page({
     onPullDownRefresh() {
 
     },
-    goDetail(e:any){
-        const type =e.currentTarget.dataset.id
+    goDetail(e: any) {
+        const type = e.currentTarget.dataset.id
         console.log(type);
         wx.navigateTo({ url: `/pages/detail/detail?article_id=${type}` })
     },

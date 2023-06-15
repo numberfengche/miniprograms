@@ -32,7 +32,12 @@
             </view>
         </block>
     </view>
-    <image src="/assets/images/mine/member.png" class="integral" />
+    <view class="integral" bind:tap="gointegral">
+        <image src="/assets/images/mine/member.png" class="img" />
+        <view class="integral_num">积分 <text>{{calendar.total_points||"--"}}</text></view>
+        <image class="integral_num_icon" src="/assets/images/mine/go.png" mode="" />
+    </view>
+
     <!-- qiandao -->
     <block wx:if="{{phone}}">
         <view class="sign">
@@ -41,7 +46,7 @@
                     每日签到
                 </view>
                 <view class="days">
-                    已连续签到 0 天
+                    已连续签到 {{calendar.continuous_days||0}} 天
                 </view>
             </view>
             <view class="right" bindtap="signIn">
@@ -60,24 +65,24 @@
             </view>
         </view>
     </block>
-    <view class="order">
+    <view class="order" bind:tap="goOrder" data-id="{{-1}}">
         <view class="order_title">我的订单</view>
         <image class="order_icon" src="/assets/images/mine/go.png" mode="" />
     </view>
     <view class="order_item">
-        <view class="pay">
+        <view class="pay" bind:tap="goOrder" data-id="{{0}}">
             <image class="pay_img" src="/assets/images/mine/fk.png" />
             <text>待付款</text>
         </view>
-        <view class="pay">
+        <view class="pay" bind:tap="goOrder" data-id="{{1}}">
             <image class="pay_img" src="/assets/images/mine/fh.png" />
             <text>待发货</text>
         </view>
-        <view class="pay">
+        <view class="pay" bind:tap="goOrder" data-id="{{2}}">
             <image class="pay_img" src="/assets/images/mine/sh.png" />
             <text>待收货</text>
         </view>
-        <view class="pay">
+        <view class="pay" bind:tap="goOrder" data-id="{{99}}">
             <image class="pay_img" src="/assets/images/mine/th.png" />
             <text>退款</text>
         </view>

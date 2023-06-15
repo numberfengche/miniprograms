@@ -1,12 +1,11 @@
-
-<van-action-sheet show="{{ show }}" title="登录五粮文创"   bind:close="onClose">
-<button class="login_menu" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
-    <image src="/assets/images/login/wx.png" class="login_icon"/>
-    <view class="title">
-        微信一键登录
+<van-action-sheet show="{{ show }}" title="登录五粮文创" bind:close="onClose">
+    <button class="login_menu" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+        <image src="/assets/images/login/wx.png" class="login_icon" />
+        <view class="title">
+            微信一键登录
+        </view>
+    </button>
+    <view class="no" bindtap="close">
+        暂不登录
     </view>
-</button>
-<view class="no" bindtap="close">
-    暂不登录
-</view>
 </van-action-sheet>

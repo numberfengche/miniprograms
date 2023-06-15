@@ -90,7 +90,7 @@ Page({
         });
     },
     remove(){
- this.setData({show:true})
+    this.setData({show:true})
     },
     cancel(){
       this.setData({show:false})

@@ -1,0 +1,24 @@
+<scroll-view class="scroll"  scroll-y bindscrolltolower="loadMore">
+   <view>
+    <view class="category">
+        <van-tabs id="tabs" bind:change="changeTab" ellipsis="{{false}}" 
+        active="{{classify}}"
+        title-active-color="#9B7B4E" title-inactive-color="#666666" color="#9B7B4E" line-width="{{28}}" line-height="{{2}}">
+            <!-- active="{{ searchInformation.cid_type }}" -->
+            <van-tab style="padding-left: 0 !important" title="全部" name="0" />
+            <van-tab style="padding-left: 0 !important" title="积分收入" name="1" />
+            <van-tab style="padding-left: 0 !important" title="积分消费" name="2" />
+        </van-tabs>
+    </view>
+    <block  wx:for="{{dataList}}"  wx:key="index">
+    <view class="card">
+    <view class="le">
+    <view class="title">{{item.type_name}}</view>
+    <view class="time">{{item.create_time}}</view>
+    </view>
+    <view wx:if="{{item.points>0}}" class="ri">{{item.points}}</view>
+    <view wx:if="{{item.points<0}}" class="ri_xf">{{item.points}}</view>
+    </view>
+    </block>
+   </view>
+</scroll-view>
