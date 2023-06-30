@@ -1,0 +1,13 @@
+<view class="tab-bar">
+  <view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
+    <image wx:if="{{index!==2}}" src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
+    <view  wx:if="{{index!==2}}" style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</view>
+     <view wx:if="{{index===2}}">
+     <view class="around">
+        <image src="/assets/images/sj_new.png"></image>
+     </view>
+     <view style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</view>
+     </view>
+     
+  </view>
+</view>

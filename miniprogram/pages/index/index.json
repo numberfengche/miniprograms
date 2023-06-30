@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index",
+    "goods-card":"../../components/card/good-card/index"
+  },
+  "navigationStyle": "custom"
 }

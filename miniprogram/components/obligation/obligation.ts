@@ -18,6 +18,10 @@ Component({
      * 组件的方法列表
      */
     methods: {
-
+        godetail(){
+            wx.navigateTo({
+                url:`/pages/order/detail/index?trade_id=${this.data.item.trade_id}`
+            })
+        }
     }
 })

@@ -1,4 +1,5 @@
-<nav name="文创市集"></nav>
+<view class="res">
+    <nav name="文创市集"></nav>
 <view class="placeholder"></view>
 <view class='box'>
     <scroll-view scroll-y scroll-with-animation style="width:180rpx">
@@ -9,4 +10,6 @@
     <view class="card_con">
         <productCard wx:for="{{goods}}" wx:key="index" item="{{item}}"></productCard>
     </view>
+</view>
+<view class="tabbar_place"></view>
 </view>

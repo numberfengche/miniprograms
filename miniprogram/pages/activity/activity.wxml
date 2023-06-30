@@ -1,2 +1,34 @@
-<!--pages/activity/activity.wxml-->
-<text>pages/activity/activity.wxml</text>
+<view class="container">
+    <view class="img_box" style="background-color:#fff">
+        <image class="img_mine" src="/assets/images/activity/top.png" />
+        <view class="nav" style="height:{{navBarHeight}}px; padding-top: {{top}}px;">
+            <image src="/assets/images/home.png" class="home_icon" bind:tap="back" />
+            <view class="nav_title">
+                活动
+            </view>
+        </view>
+    </view>
+    <view class="placetop"></view>
+    <view class="user">
+        <image class="user_img_bgc" src="/assets/images/activity/bottom.png" />
+        <view class="all">
+            <view class="row">
+                <view class="left">全部活动</view>
+                <view class="right">共 <text>{{list.length}}</text> 个活动</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="card">
+    <view class="item" wx:for="{{list}}" wx:key="index" bind:tap="goview">
+    <image class="status" src="{{item.state_str==='已结束'?'/assets/images/activity/end.png':'/assets/images/activity/start.png'}}" mode=""/>
+      <image class="img" src="{{item.cover_url}}" mode="aspectFill"/>
+      <view class="name">{{item.title}}</view>
+      <view class="time">{{item.time_str}}</view>
+    </view>
+    </view>
+
+
+    <view class="placeholder"></view>
+    <view class="tabbar_place"></view>
+</view>

@@ -1,43 +1,17 @@
 /* pages/mine/mine.wxss */
 .img_box {
     width: 100%;
-    height: 326rpx;
-    position: relative;
+    height: 176rpx;
+    position: fixed;
+    top: 0;
+    z-index: 1;
     box-sizing: border-box;
-
     .img_mine {
         width: 100%;
         height: 100%;
     }
 
-    .user_info {
-        display: flex;
-        align-items: center;
-        position: absolute;
-        left: 28rpx;
-        bottom: 0;
 
-        .avatar {
-            width: 120rpx;
-            height: 120rpx;
-            border-radius: 50%;
-            background-color: red;
-            margin-right: 12rpx;
-        }
-
-        .name {
-            font-size: 32rpx;
-            font-weight: 500;
-            color: #1A1A1A;
-        }
-
-        .phone {
-            font-size: 24rpx;
-            font-weight: 400;
-            margin-top: 16rpx;
-            color: #888888;
-        }
-    }
 
     .nav {
         position: absolute;
@@ -63,11 +37,48 @@
         }
     }
 
-    .log_out {
+
+}
+.user{
+    width: 100%;
+    height: 150rpx;
+    position: relative;
+    .user_img_bgc{
+        width: 100%;
+        height: 100%;
+    }
+    .user_info {
+        display: flex;
+        align-items: center;
         position: absolute;
         left: 28rpx;
         bottom: 0;
 
+        .avatar {
+            width: 120rpx;
+            height: 120rpx;
+            border-radius: 50%;
+            // background-color: red;
+            margin-right: 12rpx;
+        }
+
+        .name {
+            font-size: 32rpx;
+            font-weight: 500;
+            color: #1A1A1A;
+        }
+
+        .phone {
+            font-size: 24rpx;
+            font-weight: 400;
+            margin-top: 16rpx;
+            color: #888888;
+        }
+    }
+    .log_out {
+        position: absolute;
+        left: 28rpx;
+        bottom: 0;
         .out_title {
             width: 156rpx;
             height: 72rpx;
@@ -79,7 +90,6 @@
         }
     }
 }
-
 .integral {
     width: 694rpx;
     box-sizing: border-box;
@@ -316,4 +326,12 @@
 .placeholder {
     width: 100%;
     height: 60rpx;
+}
+.placetop{
+    width: 100%;
+    height: 176rpx;
+}
+.tabbar_place{
+    width: 100%;
+    height: calc(124rpx + env(safe-area-inset-bottom));
 }

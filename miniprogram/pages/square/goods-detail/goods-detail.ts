@@ -84,7 +84,11 @@ Page({
     onShow() {
         this.getGoodsNum()
     },
-
+    gohome(){
+      wx.switchTab({
+          url:"/pages/index/index"
+      })
+    },
     /**
      * 生命周期函数--监听页面隐藏
      */

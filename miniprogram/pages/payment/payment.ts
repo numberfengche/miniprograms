@@ -10,6 +10,10 @@ Page({
             postage: Number,
             price: Number,
             points: Number,
+            price_total: Number,
+            points_total: Number,
+            goods_price_total_str:String,
+            price_total_str:String,
         },
         tradeId: undefined,
         show: false,//遮罩层
@@ -67,9 +71,14 @@ Page({
                 this.setData({
                     list: data.goods_list,
                     priceInfo: {
-                        price: data.price_total_str,
+                        price: data.goods_price_total,
+                        points: data.goods_points_total,
                         postage: data.freight_str,
-                        points: data.points_total
+                        goods_price_total_str: data.goods_price_total_str,
+                        price_total_str:data.price_total_str,
+                        price_total: data.price_total,
+                        points_total: data.price_total,
+                       
                     }
 
                 })
@@ -160,6 +169,27 @@ Page({
                             console.log(res);
                         }
                     })
+                }else{
+                    var timer = setInterval(() => {
+                        _x.setData({
+                            show: true
+                        })
+                        request({
+                            url: `/api/mini/trade/detail?trade_id=${_x.data.tradeId}`,
+                            success: ({ data }: any) => {
+                                console.log(data);
+                                if (data.state === 1) {
+                                    clearInterval(timer)
+                                    _x.setData({
+                                        show: false
+                                    })
+                                    _x.godetail(data)
+                                }
+                            },
+                            fail: () => {
+                            },
+                        });
+                    }, 2000)
                 }
 
             },

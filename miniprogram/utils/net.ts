@@ -28,9 +28,9 @@ export const request = async ({ url, method, data, success, fail, showMessage = 
                 wx.showToast({ title: "请登录", icon: "none" });
                 // if (getApp().env != "develop") {
                 // }
-                // setTimeout(() => {
-                //     wx.redirectTo({ url: "/pages/index/index" });
-                // }, 1000);
+                setTimeout(() => {
+                    wx.redirectTo({ url: "/pages/login/index" });
+                }, 500);
 
                 if (fail) {
                     fail(msg);

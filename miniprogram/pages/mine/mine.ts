@@ -8,10 +8,10 @@ Page({
     data: {
         navBarHeight: getApp().globalData.navBarHeight,//导航栏高度
         top: wx.getMenuButtonBoundingClientRect().top,
-        showLogin: getApp().globalData.showLogin,
+        // showLogin: getApp().globalData.showLogin,
         avatar: getApp().globalData.avatar,
         name: getApp().globalData.name,
-        phone: "",
+        phone: getApp().globalData.phone,
         calendar: {} as any
     },
 
@@ -34,11 +34,11 @@ Page({
         }
     },
     login() {
-        this.setData({
-            showLogin: true
-        })
-        getApp().globalData.showLogin = true;
-        console.log(getApp().globalData.showLogin);
+        // this.setData({
+        //     showLogin: true
+        // })
+        // getApp().globalData.showLogin = true;
+        // console.log(getApp().globalData.showLogin);
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -74,6 +74,12 @@ Page({
      */
     onShow() {
         this.getpoints()
+        if (typeof this.getTabBar === 'function' &&
+        this.getTabBar()) {
+        this.getTabBar().setData({
+          selected: 4
+        })
+      }
     },
     signIn() {
         request({

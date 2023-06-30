@@ -1,0 +1,6 @@
+<view class="card" bind:tap="godetail">
+<image class="card-img" src="{{item.cover_urls[0]}}" mode=""/>
+<view class="title">{{item.title}}</view>
+<view class="price">￥{{item.price_str}}</view>
+<image src="/assets/goods_card.png" class="goods_car" mode=""/>
+</view>

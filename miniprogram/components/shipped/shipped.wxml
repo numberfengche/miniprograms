@@ -1,6 +1,6 @@
-<view class="card">
+<view class="card" bind:tap="godetail">
     <view class="order_id">
-        <view class="id">订单号：000000000461465</view>
+        <view class="id">订单号：{{item.trade_id}}</view>
         <view class="state">{{item.state=== 0?'待付款':item.state=== 1?'待发货':item.state=== 2?"待收货":"退款"}}</view>
     </view>
     <view wx:for="{{item.goods_list}}" wx:key="index" wx:for-item="goods" class="card_row">

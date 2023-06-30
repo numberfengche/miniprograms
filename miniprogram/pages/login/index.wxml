@@ -1,0 +1,16 @@
+<view class="box">
+    <view class="nav" style="height:{{navBarHeight}}px; padding-top: {{top}}px;">
+        <view class="null"></view>
+        <view class="nav_title">
+            微信授权
+        </view>
+        <view class="null"></view>
+    </view>
+    <image src="/assets/logo.png" mode="" class="main"/>
+    <button class="login_menu" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+        <image src="/assets/images/login/wx.png" class="login_icon" />
+        <view class="title">
+            微信一键登录
+        </view>
+    </button>
+</view>

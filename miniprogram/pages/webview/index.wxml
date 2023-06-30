@@ -1,0 +1,4 @@
+<view class="box">
+
+<web-view src="https://www.baidu.com"/>
+</view>

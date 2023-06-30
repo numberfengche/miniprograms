@@ -13,42 +13,37 @@
         "pages/payment/payment",
         "pages/orderDetail/orderDetail",
         "pages/order/order",
-        "pages/integral/integral"
+        "pages/integral/integral",
+        "custom-tab-bar/index",
+        "pages/order/detail/index",
+        "pages/login/index",
+        "pages/webview/index"
     ],
     "tabBar": {
         "backgroundColor": "#fff",
         "color": "#BBBBBB",
         "selectedColor": "#1A1A1A",
+        "custom": true,
         "list": [
             {
                 "pagePath": "pages/index/index",
-                "text": "首页",
-                "iconPath": "assets/images/index.png",
-                "selectedIconPath": "assets/images/index_select.png"
-            },
-            {
-                "pagePath": "pages/square/square",
-                "text": "文创市集",
-                "iconPath": "assets/images/sj.png",
-                "selectedIconPath": "assets/images/sj_select.png"
-            },
-            {
-                "pagePath": "pages/article/article",
-                "text": "文章",
-                "iconPath": "assets/images/wz.png",
-                "selectedIconPath": "assets/images/wz_select.png"
+                "text": "首页"
             },
             {
                 "pagePath": "pages/activity/activity",
-                "text": "活动",
-                "iconPath": "assets/images/hd.png",
-                "selectedIconPath": "assets/images/hd_select.png"
+                "text": "活动"
+            },
+            {
+                "pagePath": "pages/square/square",
+                "text": "文创市集"
+            },
+            {
+                "pagePath": "pages/article/article",
+                "text": "文章"
             },
             {
                 "pagePath": "pages/mine/mine",
-                "text": "我的",
-                "iconPath": "assets/images/mine1.png",
-                "selectedIconPath": "assets/images/mine1_select.png"
+                "text": "我的"
             }
         ]
     },

@@ -1,5 +1,95 @@
-<!--index.wxml-->
-<view class="container">
-12312312312321312321
-</view>
- 
+<scroll-view class="vessel" scroll-y bindscroll="onPageScroll">
+    <view class="nav" style="height:{{navBarHeight}}px; padding-top: {{top}}px;background-color: {{show?'#fff':'transparent'}};">
+        <view class="place"></view>
+        <image src="/assets/images/logo.png" class="logo" />
+        <view class="place"></view>
+    </view>
+    <view class="main_img">
+        <swiper class="img_item" indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}">
+            <swiper-item wx:for="{{meta.banners}}" wx:key="index" bind:tap="onchange" data-item="{{item}}">
+                <image src="{{item.image_url}}" class="img" mode="" />
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="equities">
+        <view class="equities_left">
+            <view class="title">开启加入会员 立享更多权益</view>
+            <view class="navgation">享会员专属权益
+                <van-icon class="arrow" name="arrow" />
+            </view>
+        </view>
+        <image src="/assets/images/vip.png" class="equities_right" mode="" />
+    </view>
+    <view class="title_row">
+        <view class="top">
+            <view class="line"></view>
+            <text>探五有礼</text>
+            <view class="line"></view>
+        </view>
+        <view class="bottom">解锁更多精彩活动</view>
+    </view>
+
+    <swiper easing-function="default" previous-margin='220rpx' next-margin='220rpx' class="swiper-block" circular='true' bindchange="swiperChange">
+        <swiper-item class=" {{currentIndex === index?'active':'slide-image'}}" wx:for="{{meta.activities}}" wx:key="index" bind:tap="onchange" data-item="{{item}}">
+            <view class="parcel">
+                <image src="{{item.image_url}}" mode=""></image>
+                <view class="title_img">和美食光体验官
+                    <van-icon class="arrow" name="arrow" />
+                </view>
+            </view>
+        </swiper-item>
+    </swiper>
+
+    <view class="more" bind:tap="goactivity">
+        查看更多
+        <van-icon class="arrow" name="arrow" />
+    </view>
+    <!-- 商品 -->
+    <view class="goods">
+        <view class="title_row">
+            <view class="top">
+                <view class="line"></view>
+                <text>五文创物</text>
+                <view class="line"></view>
+            </view>
+            <view class="bottom">购物享积分和好礼</view>
+        </view>
+        <view class="godds_container">
+            <swiper class="goods_item" indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}">
+                <swiper-item wx:for="{{meta.goods}}" wx:key="index">
+                    <view class="flex">
+                        <goods-card wx:for="{{item}}" wx:key="index" wx:for-item="goods" item="{{goods}}"></goods-card>
+                    </view>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="more" bind:tap="gosquare">
+            查看更多
+            <van-icon class="arrow" name="arrow" />
+        </view>
+    </view>
+    <view class="funny">
+        <view class="top_f">
+            <text></text>
+            <view class="tip"> 关注五粮液更多有趣内容</view>
+            <text></text>
+        </view>
+        <view class="rest">
+            <view class="item">
+                <view class="img1"></view>
+                <view class="title">封藏酒申购</view>
+                <view class="sub">封藏好酒来一杯</view>
+            </view>
+            <view class="item">
+                <view class="img1"></view>
+                <view class="title">封藏酒申购</view>
+                <view class="sub">封藏好酒来一杯</view>
+            </view>
+            <view class="item">
+                <view class="img1"></view>
+                <view class="title">封藏酒申购</view>
+                <view class="sub">封藏好酒来一杯</view>
+            </view>
+        </view>
+    </view>
+</scroll-view>

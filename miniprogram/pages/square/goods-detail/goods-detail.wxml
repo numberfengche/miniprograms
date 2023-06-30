@@ -31,7 +31,7 @@
     <view class="bottom_place"></view>
     <view class="options_row">
    <view class="row">
-    <image class="home_icon" src="/assets/images/buy_home.png" mode=""/>
+    <image bind:tap="gohome" class="home_icon" src="/assets/images/buy_home.png" mode=""/>
     <view class="car">
     <view wx:if="{{num>0}}" class="tps">{{num}}</view>
     <image bind:tap="gotrolley" class="car_icon" src="/assets/images/car.png" mode=""/>

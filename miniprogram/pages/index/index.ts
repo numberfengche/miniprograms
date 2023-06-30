@@ -2,49 +2,101 @@
 // 获取应用实例
 // const app = getApp<IAppOption>()
 
+import { request } from "../../utils/net";
+
 Page({
-    data: {
-        motto: 'Hello World',
-        avatarUrl: '',
-        nickName: '暂无昵称'
-    },
 
-    // 点击头像
-    onTapAvatar() {
-        wx.navigateTo({
-            url: '../logs/logs',
-        })
-    },
+data: {
+    navBarHeight: getApp().globalData.navBarHeight,//导航栏高度
+        top: wx.getMenuButtonBoundingClientRect().top,
+        show:false,//导航栏背景
+        meta:{},
+    currentIndex: 0,
+    posterList: [
+      {
+        id: '1', 
+        image: 'https://p9-aio.ecombdimg.com/obj/ecom-shop-material/hpQxGgrj_m_ccaaf88d71b463c31a4d96a564f9b5a3_sx_469862_www800-800'
+      },
+      {
+        id: '2', 
+        image: 'https://p3-aio.ecombdimg.com/obj/ecom-shop-material/hpQxGgrj_m_a016c22639169025ced58b48d267108a_sx_440147_www800-800'
+      },
+      {
+        id: '3', 
+        image: 'https://p3-aio.ecombdimg.com/obj/ecom-shop-material/hpQxGgrj_m_a016c22639169025ced58b48d267108a_sx_440147_www800-800'
+      },
+      {
+        id: '4', 
+        image: 'https://p3-aio.ecombdimg.com/obj/ecom-shop-material/hpQxGgrj_m_a016c22639169025ced58b48d267108a_sx_440147_www800-800'
+      },
+    ]
+  },
+//函数
+swiperChange(event:any){
+    let {current} = event.detail;
+    this.setData({
+      currentIndex: current
+    })
+  },
+  onShow(){
+    if (typeof this.getTabBar === 'function' &&
+    this.getTabBar()) {
+    this.getTabBar().setData({
+      selected: 0
+    })
+  }
+  },
 
-    // 点击选择头像
-    onChooseavatar(r: any) {
-        console.log("index::选择头像", r.detail.avatarUrl)
+  onLoad(){
+
+    request({
+        url: "/api/mini/index/meta",
+        success: ({ data }: any) => {
+            console.log(data);
+            this.setData({ meta: data })
+        },
+        fail: () => {
+        },
+    });
+  },
+  onPageScroll (e:any) { 
+      if(e.detail.scrollTop>50){
+          this.setData({
+              show:true
+          })
+      }else{
         this.setData({
-            avatarUrl: r.detail.avatarUrl
+            show:false
         })
+      }
     },
-
-    // 点击跳转详情
-    onTapProduct() {
-        console.log("index::跳转详情")
-        wx.navigateTo({
-            url: "/pages/product/pruduct?product_id=3600742488832390379&product_group_id=22&company_name=丰芽科技&user_name=王美丽同学&phone=18908009119&wechat=Wepp223322",
+    onchange(e:any){
+        console.log(e.currentTarget.dataset.item);
+        const item =e.currentTarget.dataset.item
+        if(item.jump_type==="article"){
+            wx.navigateTo({ url: `/pages/detail/detail?article_id=${item.id}` })
+        }else{
+            wx.navigateTo({
+                url: `/pages/square/goods-detail/goods-detail`,
+                events: {
+                    acceptDataFromOpenedPage: function (item: any) {
+                        console.log(item)
+                    },
+                },
+                success: function (res) {
+                    res.eventChannel.emit('acceptDataFromOpenerPage', { data:item})
+                }
+            })
+        }
+    },
+    goactivity(){
+          wx.switchTab({
+              url:"/pages/activity/activity"
+          })
+    },
+    gosquare(){
+        wx.switchTab({
+            url:"/pages/square/square"
         })
-    },
-
-    onTapCoop() {
-    },
-
-    onLoad(options: any) {
-
-        // wx.navigateTo({url:`/pages/productShare/index?scene=65`})
-        // return
-
-
-        // // wx.showToast({ title: "来啦，老铁", icon: "success", duration: 4000 })
-        // console.log("index::onLoad", options)
-        // this.setData({
-        //     scene: JSON.stringify(options)
-        // })
     }
 })

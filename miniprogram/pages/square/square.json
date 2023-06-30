@@ -3,5 +3,6 @@
         "productCard": "/components/card/product-card",
         "nav": "/components/nav/index"
     },
-    "navigationStyle": "custom"
+    "navigationStyle": "custom",
+    "disableScroll":true
 }

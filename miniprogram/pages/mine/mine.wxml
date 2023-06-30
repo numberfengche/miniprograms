@@ -7,7 +7,12 @@
                 我的
             </view>
         </view>
-        <block wx:if="{{!phone}}">
+      
+    </view>
+    <view class="placetop"></view>
+    <view class="user">
+    <image  class="user_img_bgc" src="/assets/images/mine/bgc1.png" />
+      <block wx:if="{{!phone}}">
             <view class="log_out" bindtap="login">
                 <view class="out_title">
                     未登录
@@ -20,7 +25,7 @@
 
         <block wx:else="{{phone}}">
             <view class="user_info">
-                <image src="" class="avatar" />
+                <image src="/assets/user.svg" class="avatar" />
                 <view class="info_name">
                     <view class="name">
                         {{name||"---"}}
@@ -32,6 +37,7 @@
             </view>
         </block>
     </view>
+
     <view class="integral" bind:tap="gointegral">
         <image src="/assets/images/mine/member.png" class="img" />
         <view class="integral_num">积分 <text>{{calendar.total_points||"--"}}</text></view>
@@ -108,7 +114,7 @@
             <text>关注公众号</text>
         </view>
     </view>
-    <view class="platform">
+    <view class="platform" style="margin-left: 22rpx;">
         <view class="pay_platform">
             <image class="platform_img" src="/assets/images/mine/kf.png" />
             <text>客服与帮助</text>
@@ -127,5 +133,6 @@
         </view>
     </view>
 <view class="placeholder"></view>
-    <login model:show="{{showLogin}}" />
+    <!-- <login model:show="{{showLogin}}" /> -->
+    <view class="tabbar_place"></view>
 </view>

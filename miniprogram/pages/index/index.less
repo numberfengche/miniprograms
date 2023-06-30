@@ -1,0 +1,344 @@
+.vessel {
+    width: 100%;
+    // height: calc(100vh - calc(116rpx + env(safe-area-inset-bottom)));
+    height: calc(100vh - 156rpx);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        transition: all 0.4s ease-out;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+
+        .place {
+            width: 48rpx;
+            height: 48rpx;
+        }
+
+        .logo {
+            width: 210rpx;
+            height: 70rpx;
+        }
+    }
+
+    .main_img {
+        width: 750rpx;
+        // height: 100% !important;
+        height: 1200rpx;
+    }
+
+    .img_item {
+        width: 750rpx !important;
+        height: 100% !important;
+    }
+
+    .img {
+        width: 750rpx;
+        height: 100% !important;
+    }
+
+    .equities {
+        width: 694rpx;
+        height: 190rpx;
+        background: #FFFFFF;
+        box-shadow: 0rpx 4rpx 32rpx 0rpx rgba(0, 0, 0, 0.06);
+        border-radius: 8rpx 8rpx 8rpx 8rpx;
+        margin: 48rpx auto 0 auto;
+        opacity: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 28rpx 28rpx 28rpx 32rpx;
+
+        .equities_left {
+            .title {
+                font-size: 32rpx;
+                font-weight: 500;
+                color: #000000;
+                line-height: 38rpx;
+                margin-bottom: 24rpx;
+            }
+
+            .navgation {
+                font-size: 24rpx;
+                font-weight: 400;
+                color: #888888;
+
+                .arrow {
+                    margin-left: 4rpx;
+                }
+            }
+        }
+
+        .equities_right {
+            width: 212rpx;
+            height: 134rpx;
+        }
+    }
+
+}
+
+.wx-swiper-dots.wx-swiper-dots-horizontal {
+    position: absolute;
+    right: 0;
+    bottom: 40rpx;
+}
+
+/* 指示点的样式 */
+.wx-swiper-dots .wx-swiper-dot {
+    width: 64rpx;
+    height: 4rpx;
+    border-radius: 5rpx;
+}
+
+/* 选中指示点的样式 */
+.swiper .wx-swiper-dot.wx-swiper-dot-active {
+    width: 50rpx;
+    border-radius: 15rpx;
+}
+
+.title_row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 112rpx;
+    margin-bottom: 64rpx;
+
+    .top {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .line {
+            width: 40rpx;
+            height: 2rpx;
+            background: #484848;
+            border-radius: 0rpx 0rpx 0rpx 0rpx;
+            opacity: 1;
+        }
+
+        text {
+            font-size: 36rpx;
+            font-weight: 500;
+            color: #1A1A1A;
+            margin: 0 16rpx;
+        }
+
+    }
+
+    .bottom {
+        font-size: 22rpx;
+        margin-top: 8rpx;
+        font-weight: 400;
+        color: #888888;
+    }
+}
+
+.more {
+    width: 320rpx;
+    height: 88rpx;
+    background: #FFFFFF;
+    border-radius: 60rpx 60rpx 60rpx 60rpx;
+    opacity: 1;
+    border: 4rpx solid #D7D7D7;
+    font-size: 24rpx;
+    font-family: PingFang SC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #1A1A1A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 64rpx auto 112rpx auto;
+}
+
+.goods {
+    width: 100%;
+    // height: 700rpx;
+    background-color: #F7F7F7;
+    padding: 64rpx 28rpx 0 28rpx;
+    overflow: hidden;
+
+    .more {
+        margin-bottom: 112rpx;
+    }
+
+    .title_row {
+        margin-top: 0;
+    }
+
+    .godds_container {
+        height: 1248rpx;
+        width: 100%;
+        background-color: #F7F7F7;
+
+        .goods_item {
+            height: 100%;
+
+            .wx-swiper-dots.wx-swiper-dots-horizontal {
+                position: absolute;
+                right: 0;
+                bottom: 0rpx;
+            }
+
+            .flex {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between
+            }
+        }
+    }
+}
+
+.funny {}
+
+.swiper-block {
+    height: 580rpx;
+    width: 100%;
+}
+
+.swiper-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: unset;
+}
+
+.slide-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 9rpx;
+    z-index: -1 !important;
+
+    .parcel {
+        width: 380rpx;
+        height: 488rpx;
+        border-radius: 9rpx 9rpx 0 0;
+        background-color: #fff;
+        box-shadow: 0rpx 4rpx 32rpx 0rpx rgba(0, 0, 0, 0.06);
+
+        .title_img {
+            height: 28rpx;
+            text-align: center;
+            font-size: 28rpx;
+            font-weight: 500;
+            color: #000000;
+        }
+
+        image {
+            width: 100%;
+            height: 380rpx;
+            border-radius: 9rpx 9rpx 0 0;
+        }
+    }
+}
+
+.active {
+    border-radius: 9rpx;
+
+    overflow: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 1s initial;
+
+    .parcel {
+        width: 400rpx;
+        height: 546rpx;
+        box-shadow: 0rpx 4rpx 32rpx 0rpx rgba(0, 0, 0, 0.06);
+        background-color: #fff;
+        margin-left: -40rpx !important;
+        border-radius: 9rpx 9rpx 0 0;
+        transition: all 0.2s ease-in;
+
+        .title_img {
+            height: 28rpx;
+            text-align: center;
+            font-size: 28rpx;
+            font-weight: 500;
+            color: #000000;
+        }
+
+        image {
+            width: 100%;
+            border-radius: 9rpx 9rpx 0 0;
+            height: 438rpx;
+        }
+    }
+}
+
+.funny {
+    width: 100%;
+    height: 446rpx;
+    background-color: #fff;
+    overflow: hidden;
+
+    .top_f {
+        display: flex;
+        width: 396rpx;
+        align-items: center;
+        font-size: 28rpx;
+        margin: 80rpx auto 48rpx auto;
+        font-family: PingFang SC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #888888;
+
+        .tip {
+            margin: 0 16rpx;
+        }
+
+        text {
+            width: 28rpx;
+            height: 2rpx;
+            background: #BBBBBB;
+        }
+    }
+
+    .rest {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .img1 {
+                width: 140rpx;
+                height: 140rpx;
+                background-color: red;
+                border-radius: 16rpx 16rpx 16rpx 16rpx;
+            }
+
+            .title {
+                font-size: 24rpx;
+                margin: 10rpx 0;
+                font-family: PingFang SC-Medium, PingFang SC;
+                font-weight: 500;
+                color: #4D4D4D;
+                text-align: center;
+            }
+
+            .sub {
+                font-size: 20rpx;
+                font-family: PingFang SC-Regular, PingFang SC;
+                font-weight: 400;
+                color: #888888;
+            }
+        }
+    }
+}

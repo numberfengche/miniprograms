@@ -2,7 +2,6 @@
   "usingComponents": {
     "nav": "/components/nav/index",
     "van-button": "@vant/weapp/button/index",
-    "van-empty": "@vant/weapp/empty/index",
     "van-icon": "@vant/weapp/icon/index",
     "van-dialog": "@vant/weapp/dialog/index"
 },

@@ -5,5 +5,5 @@
                 {{name}}
             </view>
             <view class="null"></view>
-            </view>
+    </view>
 </view>

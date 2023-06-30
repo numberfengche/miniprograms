@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "paymentInfoCard": "/components/paymentInfoCard/index",
+        "nav": "/components/nav/index"
+    },
+    "navigationStyle": "custom"
+    
+}
